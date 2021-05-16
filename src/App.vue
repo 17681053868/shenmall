@@ -1,12 +1,15 @@
 <template>
   <div id="app">
-    <router-view></router-view>
+    <!-- 缓存页面状态 -->
+    <keep-alive exclude="Detail">
+      <router-view></router-view>
+    </keep-alive>
     <main-tab-bar></main-tab-bar>
   </div>
 </template>
 
 <script>
-import MainTabBar from '@/components/MainTabBar.vue'
+import MainTabBar from '@/components/content/maintabbar/MainTabBar.vue'
 export default {
   name: 'App',
   components: {

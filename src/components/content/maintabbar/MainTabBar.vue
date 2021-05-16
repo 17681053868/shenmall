@@ -1,5 +1,5 @@
 <template>
-    <tab-bar>
+    <tab-bar class="tab-bar">
       <tab-bar-item path="/home" activeColor="#d81e06">
         <img src="@/assets/img/tabbar/home.svg"  slot="item-icon" alt="">
         <img src="@/assets/img/tabbar/home_active.svg" slot="item-icon-active" alt="">
@@ -24,8 +24,8 @@
 </template>
 
 <script>
-import TabBar from '@/components/tabbar/TabBar'
-import TabBarItem from '@/components/tabbar/TabBarItem'
+import TabBar from '@/components/common/tabbar/TabBar'
+import TabBarItem from '@/components/common/tabbar/TabBarItem'
 export default {
   name: 'MainTabBar',
   components: {
@@ -36,5 +36,8 @@ export default {
 </script>
 
 <style scoped>
-
+.tab-bar {
+  background-color: #fff;
+  z-index: 999;
+}
 </style>>

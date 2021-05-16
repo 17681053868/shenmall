@@ -1,3 +1,4 @@
+// axios封装
 import axios from 'axios'
 
 export function request (config, success, failure) {
@@ -23,7 +24,7 @@ export function request (config, success, failure) {
   })
   // 拦截器
   instance.interceptors.request.use(config => {
-    console.log(config)
+    // console.log(config)
     return config
   }, err => {
     console.log(err)
@@ -31,7 +32,7 @@ export function request (config, success, failure) {
   })
 
   instance.interceptors.response.use(res => {
-    return res
+    return res.data
   }, err => {
     return err
   })

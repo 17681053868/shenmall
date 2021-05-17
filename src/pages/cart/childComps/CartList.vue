@@ -1,12 +1,13 @@
 <template>
   <div class="cart-list">
-    <scroll class="content">
-      <cart-list-item v-for="(item, index) in cartList" :key="index" :product="item">
-      </cart-list-item>
+    <scroll class="content" ref="scroll">
+      <cart-list-item v-for="(item, index) in cartList" :key="index" :item-info="item"></cart-list-item>
     </scroll>
   </div>
 </template>
 <script>
+import { mapGetters } from 'vuex'
+
 import CartListItem from '@/pages/cart/childComps/CartListItem'
 import Scroll from '@/components/common/scroll/Scroll'
 export default {
@@ -15,20 +16,19 @@ export default {
     CartListItem,
     Scroll
   },
-  data () {
-    return {
-      cartList: []
-    }
+  computed: {
+    ...mapGetters([
+      'cartList'
+    ])
   },
-  updated () {
-    this.cartList = this.$store.state.cartList
-    console.log(this.cartList)
-  },
+  activated () {
+    this.$refs.scroll.refresh()
+  }
 }
 </script>
 <style scoped>
 .cart-list {
-  height: calc(100% - 44px - 49px);
+  height: calc(100% - 44px - 49px - 40px);
 }
 .content {
   height: 100%;

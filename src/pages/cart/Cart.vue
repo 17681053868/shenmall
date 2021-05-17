@@ -7,18 +7,22 @@
     <!-- 商品列表 -->
     <cart-list></cart-list>
     <!-- 汇总 -->
+    <cart-bottom-bar></cart-bottom-bar>
   </div>
 </template>
 
 <script>
 import CartList from '@/pages/cart/childComps/CartList'
+import CartBottomBar from '@/pages/cart/childComps/CartBottomBar'
 
 import NavigationBar from '@/components/common/navigationbar/NavigationBar'
+import { mapGetters } from 'vuex'
 
 export default {
   name: 'Cart',
   components: {
     CartList,
+    CartBottomBar,
     NavigationBar
   },
   data () {
@@ -26,9 +30,9 @@ export default {
     }
   },
   computed: {
-    cartLength () {
-      return this.$store.state.cartList.length
-    }
+    ...mapGetters ([
+      'cartLength'
+    ])
   }
 }
 </script>

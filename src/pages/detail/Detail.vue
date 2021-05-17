@@ -12,6 +12,7 @@
     </scroll>
     <back-top @click.native="backClick" v-show="isShowBackTop"></back-top>
     <detail-bottom-bar @addToCart="addToCart"></detail-bottom-bar>
+    <toast></toast>
   </div>
 </template>
 <script>
@@ -30,6 +31,7 @@ import { getDetailData, Goods, Shop, GoodsParam, getRecommend} from '@/network/d
 import GoodsList from '@/components/content/goods/GoodsList'
 import Scroll from '@/components/common/scroll/Scroll'
 import BackTop from '@/components/content/backTop/BackTop'
+import Toast from '@/components/common/toast/Toast'
 
 import { debounce } from '@/common/utils.js'
 
@@ -46,7 +48,8 @@ export default {
     DetailBottomBar,
     GoodsList,
     Scroll,
-    BackTop
+    BackTop,
+    Toast
   },
   data () {
     return {
@@ -64,7 +67,9 @@ export default {
       themeTopYs: [],
       getThemeTopYs: null,
       currentIndex: 0,
-      isShowBackTop: false
+      isShowBackTop: false,
+      message: '',
+      show: false
     }
   },
   created () {
@@ -146,8 +151,6 @@ export default {
     },
     // 添加购物车
     addToCart () {
-      console.log('-----')
-      console.log(this.$route)
       // 获取购物车需要展示的信息
       const product = {}
       product.image = this.topImages[0]
@@ -155,12 +158,20 @@ export default {
       product.desc = this.goods.desc
       product.price = this.goods.nowPrice
       product.iid = this.iid
-      console.log(product)
       // 将商品添加到购物车
       // this.$store.state.cartList.push(product)
-      console.log(this.$store.state.cartList)
+      // console.log(this.$store.state.cartList)
       // this.$store.commit('addCart', product)
-      this.$store.dispatch('addCart', product)
+      this.$store.dispatch('addCart', product).then(res => {
+        // console.log(res)
+        // this.show = true
+        // this.message = res
+        // setTimeout(() => {
+        //   this.show = false
+        //   this.message = ''
+        // },1000)
+        this.$toast.show(res, 1000)
+      })
     }
   },
   mounted () {

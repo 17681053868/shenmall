@@ -46,4 +46,7 @@ export default {
   color: #fff;
   font-weight: 700;
 }
+.nav-bar div {
+  letter-spacing: 5px;
+}
 </style>

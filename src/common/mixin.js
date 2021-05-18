@@ -1,4 +1,4 @@
-import {POP, NEW, SELL} from "./const";
+import {POP, NEW, SELL} from "./const"
 
 export const backTopMixin = {
   data: function () {
@@ -8,7 +8,7 @@ export const backTopMixin = {
   },
   methods: {
     backTop: function () {
-      this.$refs.scroll.scrollTo(0, 0, 300);
+      this.$refs.scroll.scrollTo(0, 0, 300)
     }
   }
 }
@@ -32,7 +32,7 @@ export const tabControlMixin = {
           this.currentType = SELL
           break
       }
-      console.log(this.currentType);
+      // console.log(this.currentType)
     }
   }
 }

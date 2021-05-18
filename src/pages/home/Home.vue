@@ -203,6 +203,9 @@ export default {
   top: 0;
   z-index: 999; */
 }
+.home-nav div{
+  letter-spacing: 8px;
+}
 /* .tab-card {
   粘性定位，到达一定位置固定在此
   position: sticky;

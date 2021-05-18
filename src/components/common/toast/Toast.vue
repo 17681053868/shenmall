@@ -47,7 +47,4 @@ export default {
   z-index: 999999;
   background-color: rgba(0, 0, 0, .7);
 }
-.message {
-  /* margin: 10px; */
-}
 </style>

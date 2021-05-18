@@ -70,8 +70,7 @@
 
   #user-info .login-info .phone .icon-mobile {
     position: absolute;
-    width: 12px;
-    height: 18px;
+    width: 15px;
     left: -15px;
     top: 0px;
   }

@@ -11,7 +11,7 @@ export default {
         payload.count = 1
         // context.state.cartList.push(payload)
         context.commit(ADD_TO_CART, payload)
-        resolve('我在购物车等您哦')
+        resolve('在购物车等您哦')
       }
     })
   }

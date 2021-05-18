@@ -15,6 +15,11 @@ export default {
   components: {
     CheckButton
   },
+  data () {
+    return {
+      checkedList: []
+    }
+  },
   methods: {
     checkClick () {
       if (this.isSelectAll) {
@@ -24,9 +29,18 @@ export default {
       }
     },
     calacClick () {
-      if (!this.isSelectAll) {
-        this.$toast.show('请选择购物商品',2000)
-      }
+      // if (!this.isSelectAll) {
+      //   this.$toast.show('请选择购物商品',2000)
+      // }
+      this.checkedList = []
+      this.$store.state.cartList.forEach(item => {
+        this.checkedList.push(item.checked)
+        if (this.checkedList.indexOf(true) === -1) {
+          this.$toast.show('请选择购物商品',2000)
+        } else {
+          this.$toast.show('下单模块开发中',2000)
+        }
+      })
     }
   },
   computed: {

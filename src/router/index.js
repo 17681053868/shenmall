@@ -12,10 +12,10 @@ const Detail = () => import('../pages/detail/Detail.vue')
 Vue.use(VueRouter)
 
 //连续点击报错解决方案
-const routerPush = VueRouter.prototype.push
-VueRouter.prototype.push = function push(location) {
-  return routerPush.call(this, location).catch(error=> error)
-}
+// const routerPush = VueRouter.prototype.push
+// VueRouter.prototype.push = function push(location) {
+//   return routerPush.call(this, location).catch(error=> error)
+// }
 const routes = [{
   path: '',
   // 路由重定向
